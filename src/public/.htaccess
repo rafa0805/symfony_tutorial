@@ -1,0 +1,7 @@
+RewriteEngine on
+# .somethingを持つすべてのファイルをスキップする
+RewriteCond %{REQUEST_URI} \..+$
+RewriteCond %{REQUEST_URI} !\.html$
+RewriteRule .* - [L]
+# その他はWebフロントコントローラにリダイレクトされる
+RewriteRule ^(.*)$ index.php [QSA,L]
