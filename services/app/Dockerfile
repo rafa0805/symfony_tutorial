@@ -35,6 +35,7 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 
 # Install dependencies
+RUN mkdir -m 777 var
 COPY ./src/composer* /var/www/html
 RUN composer install --no-scripts
 

@@ -8,5 +8,6 @@ services:
     volumes:
       - ./src:/var/www/html
       - /var/www/html/vendor
+      - /var/www/html/var
     ports:
       - 8888:80
