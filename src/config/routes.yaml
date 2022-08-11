@@ -1,3 +1,9 @@
-app_lucky_number:
+index:
+    path: /
+    controller: 'App\Controller\DefaultController::index'
+hello:
+    path: /hello/{name}
+    controller: 'App\Controller\DefaultController::hello'
+lucky:
     path: /lucky/number
-    controller: App\Controller\LuckyController::number
+    controller: 'App\Controller\LuckyController::number'
