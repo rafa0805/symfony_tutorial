@@ -1,9 +1,6 @@
-index:
-    path: /
-    controller: 'App\Controller\DefaultController::index'
-hello:
-    path: /hello/{name}
-    controller: 'App\Controller\DefaultController::hello'
-lucky:
-    path: /lucky/number
-    controller: 'App\Controller\LuckyController::number'
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+kernel:
+    resource: ../src/Kernel.php
+    type: attribute
