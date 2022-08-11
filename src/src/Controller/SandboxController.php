@@ -32,7 +32,7 @@ class SandboxController extends AbstractController
   #[Route('/session_test', name: 'session_test_page')]
   public function session_test(SessionInterface $session): Response
   {
-    $current_count = !$session->get('count_up') ? 0 : $session->get('count_up');
+    $current_count = $session->get('count_up', 0);
     $current_count++;
     $session->set('count_up', $current_count);
 
