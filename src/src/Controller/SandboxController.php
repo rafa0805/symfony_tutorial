@@ -41,4 +41,17 @@ class SandboxController extends AbstractController
       'count' => $session->get('count_up'),
     ]);
   }
+
+  #[Route('/json_test', name: 'json_test_page')]
+  public function json_test(): Response
+  {
+    $response = new Response(json_encode([
+      ['id' => 1, 'text' => 'hoge'],
+      ['id' => 2, 'text' => 'hoge2'],
+      ['id' => 3, 'text' => 'hoge3'],
+      ['id' => 4, 'text' => 'hoge4'],
+    ]));
+    $response->headers->set('Content-Type', 'application/json');
+    return $response;
+  }
 }
