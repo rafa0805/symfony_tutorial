@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   app:
-    container_name: my_symfony
+    container_name: my-symfony
     build:
       dockerfile: ./services/app/Dockerfile
       context: ./
@@ -11,3 +11,20 @@ services:
       - /var/www/html/var
     ports:
       - 8888:80
+    depends_on:
+      - mysql
+  mysql:
+    container_name: my-db
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todoapp
+      MYSQL_USER: developer
+      MYSQL_PASSWORD: secret
+      TZ: 'Asia/Tokyo'
+    ports:
+      - 3306:3306
+    volumes:
+      - database:/var/lib/mysql
+volumes:
+  database:
