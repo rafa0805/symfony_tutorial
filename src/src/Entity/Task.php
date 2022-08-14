@@ -19,6 +19,9 @@ class Task
     #[ORM\Column(type: 'text', nullable: true)]
     private $memo;
 
+    #[ORM\Column(type: 'date', nullable: true)]
+    private $deadline;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +47,18 @@ class Task
     public function setMemo(?string $memo): self
     {
         $this->memo = $memo;
+
+        return $this;
+    }
+
+    public function getDeadline(): ?\DateTimeInterface
+    {
+        return $this->deadline;
+    }
+
+    public function setDeadline(?\DateTimeInterface $deadline): self
+    {
+        $this->deadline = $deadline;
 
         return $this;
     }
